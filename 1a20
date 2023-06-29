@@ -1,0 +1,288 @@
+func calcularMedia(slice []int) (float64, error) {
+    if len(slice) == 0 {
+        return 0, errors.New("O slice está vazio")
+    }
+    
+    soma := 0
+    
+    for _, valor := range slice {
+        soma += valor
+    }
+    
+    media := float64(soma) / float64(len(slice))
+    
+    return media, nil
+}
+2-func contarVogais(str string) int {
+    quantidade := 0
+    
+    for _, char := range strings.ToLower(str) {
+        if char == 'a' || char == 'e' || char == 'i' || char == 'o' || char == 'u' {
+            quantidade++
+        }
+    }
+    
+    return quantidade
+}
+3-func concatenarStrings(slice []string) (string, error) {
+    if len(slice) == 0 {
+        return "", errors.New("O slice está vazio")
+    }
+    
+    resultado := strings.Join(slice, "")
+    
+    return resultado, nil
+}
+4-func encontrarSegundoMaiorValor(slice []int) (int, error) {
+    if len(slice) < 2 {
+        return 0, errors.New("O slice não contém pelo menos dois valores")
+    }
+    
+    maior := slice[0]
+    segundoMaior := slice[1]
+    
+    for _, valor := range slice {
+        if valor > maior {
+            segundoMaior = maior
+            maior = valor
+        } else if valor > segundoMaior && valor != maior {
+            segundoMaior = valor
+        }
+    }
+    
+    return segundoMaior, nil
+}
+5-func encontrarPosicaoElemento(slice []int, valor int) int {
+    for i, elemento := range slice {
+        if elemento == valor {
+            return i
+        }
+    }
+    
+    return -1
+}
+6-func concatenarStringsComVirgulas(slice []string) (string, error) {
+    if len(slice) == 0 {
+        return "", errors.New("O slice está vazio")
+    }
+    
+    resultado := strings.Join(slice, ", ")
+    
+    return resultado, nil
+}
+7-func aplicarFuncao(slice []int, funcao func(int) int) ([]int, error) {
+    if len(slice) == 0 {
+        return nil, errors.New("O slice está vazio")
+    }
+    
+    resultado := make([]int, len(slice))
+    
+    for i, valor := range slice {
+        resultado[i] = funcao(valor)
+    }
+    
+    return resultado, nil
+}
+8-func encontrarNumerosPares(slice []int) ([]int, error) {
+    if len(slice) == 0 {
+        return nil, errors.New("O slice está vazio")
+    }
+    
+    pares := []int{}
+    
+    for _, valor := range slice {
+        if valor%2Desculpe, parece que o código foi cortado novamente. Aqui está o restante das funções:
+
+        if valor%2 == 0 {
+            pares = append(pares, valor)
+        }
+    }
+    
+    return pares, nil
+}
+9-func extrairPalavras(str string) ([]string, error) {
+    if str == "" {
+        return nil, errors.New("A string está vazia")
+    }
+    
+    palavras := strings.Fields(str)
+    
+    return palavras, nil
+}
+10-func ordenarValores(slice []int) ([]int, error) {
+    if len(slice) == 0 {
+        return nil, errors.New("O slice está vazio")
+    }
+    
+    ordenado := make([]int, len(slice))
+    copy(ordenado, slice)
+    sort.Ints(ordenado)
+    
+    return ordenado, nil
+}
+11-func verificarNumeroPrimo(numero int) (bool, error) {
+    if numero < 0 {
+        return false, errors.New("O número é negativo")
+    }
+    
+    if numero < 2 {
+        return false, nil
+    }
+    
+    for i := 2; i*i <= numero; i++ {
+        if numero%i == 0 {
+            return false, nil
+        }
+    }
+    
+    return true, nil
+}
+12- func encontrarStringsComLetraMaiuscula(slice []string) ([]string, error) {
+    if len(slice) == 0 {
+        return nil, errors.New("O slice está vazio")
+    }
+    
+    encontradas := []string{}
+    
+    for _, str := range slice {
+        if len(str) > 0 && unicode.IsUpper(rune(str[0])) {
+            encontradas = append(encontradas, str)
+        }
+    }
+    
+    return encontradas, nil
+}
+13-func somarDigitos(numero int) (int, error) {
+    if numero < 0 {
+        return 0, errors.New("O número é negativo")
+    }
+    
+    soma := 0
+    
+    for numero > 0 {
+        soma += numero % 10
+        numero /= 10
+    }
+    
+    return soma, nil
+}
+14-func encontrarNumerosComuns(slice1, slice2 []int) ([]int, error) {
+    if len(slice1) == 0 || len(slice2) == 0 {
+        return nil, errors.New("Um dos slices está vazio")
+    }
+    
+    numerosComuns := []int{}
+    mapa := make(map[int]bool)
+    
+    for _, valor := range slice1 {
+        mapa[valor] = true
+    }
+    
+    for _, valor := range slice2 {
+        if mapa[valor] {
+            numerosComuns = append(numerosComuns, valor)
+        }
+    }
+    
+    return numerosComuns, nil
+}
+15-func verificarNumeroPresente(numero int, slice []int) (bool, error) {
+    if len(slice) == 0 {
+        return false, errors.New("O slice está vazio")
+    }
+    
+    for _, valor := range slice {
+        if valor == numero {
+            return true, nil
+        }
+    }
+    
+    return false, nil
+}
+16-func substituirVogaisPorAsteriscos(str string) (string, error) {
+    if str == "" {
+        return "", errors.New("A string está vazia")
+    }
+    
+    resultado := ""
+    
+    for _, char := range str {
+        if char == 'a' || char == 'e' || char == 'i' || char == 'o' || char == 'u' ||
+            char == 'A' || char == 'E' || char == 'I' || char == 'O' || char == 'U' {
+            resultado += "*"
+        } else {
+            resultado += string(char)
+        }
+    }
+    
+    return resultado, nil
+}
+17-func ordenarStrings(slice []string) ([]string, error) {
+    if len(slice) == 0 {
+        return nil, errors.New("O slice está vazio")
+    }
+    
+    ordenado := make([]string, len(slice))
+    copy(ordenado, slice)
+    sort.Strings(ordenado)
+    
+    return ordenado, nil
+}
+18-func somarResultados(slice []int, funcao func(int) int) (int, error) {
+    if len(slice) == 0 {
+        return 0, errors.New("O slice está vazio")
+    }
+    
+    soma := 0
+    
+    for _, valor := range slice {
+        resultado := funcao(valor)
+        soma += resultado
+    }
+    
+    return soma, nil
+}
+19-func encontrarNumerosPrimos(numero int) ([]int, error) {
+    if numero < 0 {
+        return nil, errors.New("O número é negativo")
+    }
+    
+    primos := []int{}
+    
+    for i := 2; i <= numero; i++ {
+        if isPrimo(i) {
+            primos = append(primos, i)
+        }
+    }
+    
+    return primos, nil
+}
+
+func isPrimo(numero int) bool {
+    if numero < 2 {
+        return false
+    }
+    
+    for i := 2; i*i <= numero; i++ {
+        if numero%i == 0 {
+            return false
+        }
+    }
+    
+    return true
+}
+20-func encontrarStringsComMaisDeCincoCaracteres(slice []string) ([]string, error) {
+    if len(slice) == 0 {
+        return nil, errors.New("O slice está vazio")
+    }
+    
+    encontradas := []string{}
+    
+    for _, str := range slice {
+        if len(str) > 5 {
+            encontradas = append(encontradas, str)
+        }
+    }
+    
+    return encontradas, nil
+}
